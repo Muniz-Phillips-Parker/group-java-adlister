@@ -24,7 +24,6 @@ public class SearchAdServlet extends HttpServlet {
             response.sendRedirect("/search_ads");
             return;
         }
-
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
 
     }
