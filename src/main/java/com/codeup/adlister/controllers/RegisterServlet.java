@@ -65,7 +65,11 @@ public class RegisterServlet extends HttpServlet {
             String passwordIsEmpty = "Please enter a password.";
             listOfErrors.add(passwordIsEmpty);
             inputHasErrors = true;
-
+        }
+        if(!password.equals(passwordConfirmation)){
+            String passwordsDontMatch = "Your passwords don't match. Please try again.";
+            listOfErrors.add(passwordsDontMatch);
+            inputHasErrors = true;
         }
         // create and save a new user
         User user = new User(username, email, password);
