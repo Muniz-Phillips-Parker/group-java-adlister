@@ -34,7 +34,7 @@ public class RegisterServlet extends HttpServlet {
         ArrayList<String> listOfErrors = new ArrayList<>();
         //Username field blank or duplicate
         if (username.isEmpty()) {
-            String usernameIsEmpty = "Please enter your username.";
+            String usernameIsEmpty = "Please enter a valid username.";
             listOfErrors.add(usernameIsEmpty);
             inputHasErrors = true;
         } else {
@@ -47,6 +47,18 @@ public class RegisterServlet extends HttpServlet {
             if (inputHasErrors) {
                 response.sendRedirect("/register");
                 return;
+            }
+        }
+//        Now we will check to see if the email field is empty or already in use.
+        if(email.isEmpty()){
+            String emailIsEmpty = "Please enter a valid email address.";
+            listOfErrors.add(emailIsEmpty);
+            inputHasErrors = true;
+        } else {
+            User user = DaoFactory.getUsersDao().findByEmail(email);
+            if(user != null){
+                listOfErrors.add("An account with that email address is already in use. Please login or choose another email address.");
+                inputHasErrors = true;
             }
         }
         // create and save a new user
