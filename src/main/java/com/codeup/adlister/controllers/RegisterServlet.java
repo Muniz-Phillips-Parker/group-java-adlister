@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -24,21 +25,34 @@ public class RegisterServlet extends HttpServlet {
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
-            || email.isEmpty()
-            || password.isEmpty()
-            || (! password.equals(passwordConfirmation));
+                || email.isEmpty()
+                || password.isEmpty()
+                || (!password.equals(passwordConfirmation));
 
+//        The following will check for potential errors
 
-        if (inputHasErrors) {
-            response.sendRedirect("/register");
-            return;
+        ArrayList<String> listOfErrors = new ArrayList<>();
+        //Username field blank or duplicate
+        if (username.isEmpty()) {
+            String usernameIsEmpty = "Please enter your username.";
+            listOfErrors.add(usernameIsEmpty);
+            inputHasErrors = true;
+        } else {
+            User user = DaoFactory.getUsersDao().findByUsername(username);
+            if (user != null) {
+                listOfErrors.add("That username has already been claimed. You need to pick a different username.");
+                inputHasErrors = true;
+            }
 
-
+            if (inputHasErrors) {
+                response.sendRedirect("/register");
+                return;
+            }
         }
-
         // create and save a new user
         User user = new User(username, email, password);
         DaoFactory.getUsersDao().insert(user);
         response.sendRedirect("/login");
     }
 }
+
