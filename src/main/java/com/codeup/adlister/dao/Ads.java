@@ -10,4 +10,5 @@ public interface Ads {
 
     long insert(Ad ad);
     // insert a new ad and return the new ad's id
+    Long insert(Ad ad);
 }

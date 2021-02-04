@@ -6,7 +6,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/LogoutNavbar.jsp" />
     <div class="container">
         <h1>Please Log In</h1>
         <form action="/login" method="POST">
@@ -20,6 +20,7 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
+        <a  href="/register">Don't have an account?</a>
     </div>
 </body>
 </html>

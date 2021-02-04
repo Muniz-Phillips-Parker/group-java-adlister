@@ -1,4 +1,6 @@
 use adlister_db;
+
+
 INSERT INTO users (username, email, password)
 VALUES ('Bobby Bob', 'bobby@email.com', '$2a$12$hMBHftmWPtdIWrgX1My8Wuhz9wrZULG5MrqmoVwCSBH24t/DDlPNS'),
        ('Sally Smith', 'sally@email.com', '$2a$12$hMBHftmWPtdIWrgX1My8Wuhz9wrZULG5MrqmoVwCSBH24t/DDlPNS'),
@@ -12,3 +14,12 @@ VALUES
 (3, 'painting', 'I am looking for someone to paint my fence, please let me know if you are intrested'),
 (4, 'Painter', 'I am a painter looking for any work needed.'),
 (5, 'electrician', 'I am a electrician looking for any work needed.');
+
+
+
+
+SELECT username, adlister_db.ads.title
+FROM users
+Left JOIN ads ON users.id = ads.user_id WHERE user_id = 5;
+
+

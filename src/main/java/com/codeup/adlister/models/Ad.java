@@ -17,6 +17,7 @@ public class Ad {
         this.userId = userId;
         this.title = title;
         this.description = description;
+
     }
 
     public long getId() {

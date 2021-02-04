@@ -57,6 +57,7 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+
     @Override
     public void updateUsername(String newUsername, String userId) {
         String query ="Update users SET username = ? WHERE id = ?";

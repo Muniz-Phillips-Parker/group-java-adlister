@@ -7,7 +7,7 @@
     </jsp:include>
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/LogoutNavbar.jsp" />
     <div class="container">
         <h1>Jack-Of-All-Trade-lister!</h1>
     </div>
