@@ -3,13 +3,13 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Welcome to my site!" />
+        <jsp:param name="title" value="Welcome to my Jack-Of-All-Trade-lister!" />
     </jsp:include>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/LogoutNavbar.jsp" />
     <div class="container">
-        <h1>Welcome to the Adlister!</h1>
+        <h1>Jack-Of-All-Trade-lister!</h1>
     </div>
 </body>
 </html>

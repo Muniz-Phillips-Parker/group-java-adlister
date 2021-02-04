@@ -12,13 +12,18 @@
 <div class="container">
     <h1>Here Are all the ads!</h1>
 
+
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
+            <h3>Ad: ${ad.title}</h3>
+            <h4>Posted by: ${usersDao.findById(ad.userId).getUsername()}</h4>
+            <p>Description: ${ad.description}</p>
         </div>
     </c:forEach>
 </div>
-
+<div class="container">
+    <br>
+    <a href="../profile"><button class="btn-primary">Back to my profile.</button></a>
+</div>
 </body>
 </html>
