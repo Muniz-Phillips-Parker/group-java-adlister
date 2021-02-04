@@ -31,11 +31,6 @@ public class EditServlet extends HttpServlet {
                 request.getParameter("description")
         );
         DaoFactory.getAdsDao().insert(ad);
-        try {
-            DaoFactory.getAdsDao().Delete(ad);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
         response.sendRedirect("/profile");
     }
 }
