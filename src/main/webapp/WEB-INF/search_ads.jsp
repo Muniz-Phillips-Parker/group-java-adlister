@@ -11,10 +11,10 @@
     <h1>What is the ad you are searching for?</h1>
     <form action="/search_ads" method="POST">
         <div class="form-group">
-            <label for="searched_ad">search</label>
-            <input id="searched_ad" name="searched_ad" class="form-control" type="text">
+            <label for="searched_ads">search</label>
+            <input id="searched_ads" name="searched_ads" class="form-control" type="text">
         </div>
-        <input type="submit" class="btn btn-primary btn-block" value="Log In">
+        <input type="submit" class="btn btn-primary btn-block" value="Find ads">
     </form>
 </div>
 </body>
