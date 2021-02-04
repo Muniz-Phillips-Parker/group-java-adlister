@@ -6,7 +6,7 @@
     </jsp:include>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/LoginNavbar.jsp" />
 <div class="container">
     <h1>What is the ad you are searching for?</h1>
     <form action="/search_ads" method="POST">
