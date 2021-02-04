@@ -21,6 +21,6 @@ public class DeleteUserServlet extends HttpServlet{
 
         DaoFactory.getUsersDao().destroy(userId);
         request.getSession().invalidate();
-        response.sendRedirect("/register.jsp");
+        response.sendRedirect("/register");
     }
 }
