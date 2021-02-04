@@ -14,12 +14,6 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
     </div>
 
-
-<body>add
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
-<div class="container">
-    <h1>Welcome, ${sessionScope.user.username}!</h1>
-</div>
 <div class="container">
     <a href="ads/create"><button class="btn btn-primary btn-block">Create a new ad</button></a>
     <br>
