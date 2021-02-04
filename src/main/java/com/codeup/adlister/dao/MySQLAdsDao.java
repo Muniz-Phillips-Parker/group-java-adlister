@@ -52,24 +52,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    @Override
-    public Long updateAd(Ad ad) {
-
-        return null;
-    }
-
-    @Override
-    public void Delete(long id) throws SQLException {
-        List<Ad>updateAds = new ArrayList<>();
-        for(Ad ads: ad) {
-            if (ad.getId() != id) {
-                updateAds.add(ad);
-            }
-        }
-
-    }
-
-
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
