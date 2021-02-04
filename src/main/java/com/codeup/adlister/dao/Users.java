@@ -8,4 +8,8 @@ public interface Users {
     User findByUsername(String username);
     Long insert(User user);
     User findById(long id);
+//    added this so if email is duplicated on the registerServlet, user will be forced to use a different email.
+    User findByEmail(String email);
+
+
 }
