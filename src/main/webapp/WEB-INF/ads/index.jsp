@@ -19,6 +19,9 @@
         </div>
     </c:forEach>
 </div>
-
+<div class="container">
+    <br>
+    <a href="../profile"><button class="btn-primary">Back to my profile.</button></a>
+</div>
 </body>
 </html>
