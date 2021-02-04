@@ -22,8 +22,12 @@
     <h1>Here are all the ads you posted!</h1>
     <c:forEach var="ad" items="${ads}">
         <div class="col-md-6">
+            <form>
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
+                <input type="button" value="Edit" id="Edit" class =" btn btn-secondary" onclick="window.location='ads/edit';">
+                <input type="button" value="Delete" id="Delete" class =" btn btn-secondary">
+            </form>
         </div>
     </c:forEach>
 </div>
