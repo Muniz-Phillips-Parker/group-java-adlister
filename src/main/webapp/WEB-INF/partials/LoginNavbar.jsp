@@ -9,6 +9,7 @@
             <li><a href="/profile">Profile</a></li>
             <li><a href="/ads/create">Create Ads</a></li>
             <li><a href="/logout">Logout</a></li>
+            <li><a href="/search_ads">Search</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
