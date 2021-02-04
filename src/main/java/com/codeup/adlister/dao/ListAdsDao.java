@@ -15,7 +15,7 @@ public class ListAdsDao implements Ads {
         return ads;
     }
 
-    public Long insert(Ad ad) {
+    public long insert(Ad ad) {
         // make sure we have ads
         if (ads == null) {
             ads = generateAds();
