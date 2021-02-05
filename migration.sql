@@ -7,6 +7,7 @@ CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL,
     email VARCHAR(240) NOT NULL,
+    phoneNumber VARCHAR(10),
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
