@@ -12,11 +12,12 @@
     <form action="/ads/edit" method="post">
         <div class="form-group">
             <label for="title">New Title</label>
-            <input id="title" name="title" class="form-control" type="text">
+            <input class="form-control" type="text" name="title" id="title" placeholder="Enter ad title" value="${ad.title}">
         </div>
         <div class="form-group">
             <label for="description">New Description</label>
-            <textarea id="description" name="description" class="form-control" type="text"></textarea>
+            <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Enter ad description">${ad.description}</textarea>
+            <input type="hidden" name="ad-id" value="${ad.id}">
         </div>
         <input type="Submit" class="btn btn-block btn-primary" value="Edit Ad">
     </form>

@@ -1,5 +1,6 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 
 import java.util.List;
@@ -21,7 +22,5 @@ public interface Users {
     void updatePassword(String newPassword, String userId);
 
     void destroy(long userId);
-
-
 
 }

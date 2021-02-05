@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -19,18 +20,26 @@ public class EditServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+
+        long id = Long.parseLong(request.getParameter("id"));
+        Ad ad = DaoFactory.getAdsDao().findById(id);
+        request.setAttribute("id", id);
+        request.setAttribute("ad", ad);
+
         request.getRequestDispatcher("/WEB-INF/ads/edit.jsp")
                 .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String newTitle = request.getParameter("title");
+        String newDescription = request.getParameter("description");
+        Long adId = Long.parseLong(request.getParameter("ad-id"));
+//        long newId = Long.parseLong(request.getParameter("id"));
+
         User user = (User) request.getSession().getAttribute("user");
-        Ad ad = new Ad(
-                user.getId(),
-                request.getParameter("title"),
-                request.getParameter("description")
-        );
-        DaoFactory.getAdsDao().insert(ad);
+        Ad ad = (Ad) request.getSession().getAttribute("ad");
+
+        DaoFactory.getAdsDao().editAd(newTitle, newDescription, adId);
         response.sendRedirect("/profile");
     }
 }

@@ -31,7 +31,16 @@
             <form>
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-                <input type="button" value="Edit" id="Edit" class =" btn btn-secondary" onclick="window.location='ads/edit';">
+
+<%--                ATTEMPT TO PULL AD TO EDIT SERVLET--%>
+                <a href="<c:url value="ads/edit" >
+    <c:param name="id" value="${ad.id}"/>
+    </c:url>">Edit</a>
+
+
+
+
+<%--                <input type="button" value="Edit" id="Edit" class =" btn btn-secondary" onclick="window.location='ads/edit';">--%>
                 <input type="button" value="Delete" id="Delete" class =" btn btn-secondary">
             </form>
         </div>
