@@ -101,8 +101,16 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public void destroy(long userId) {
-
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement ps = connection.prepareStatement(deleteQuery);
+            ps.setLong(1, userId);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad", e);
+        }
     }
+
 
     @Override
     public Long insert(User user) {
