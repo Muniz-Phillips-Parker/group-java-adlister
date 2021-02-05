@@ -17,6 +17,13 @@ public class User {
         this.phoneNumber = phoneNumber;
         setPassword(password);
     }
+    public User(Long id, String username, String email, String phoneNumber, String password) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
 
     public User(long id, String username, String email, String password) {
         this.id = id;
