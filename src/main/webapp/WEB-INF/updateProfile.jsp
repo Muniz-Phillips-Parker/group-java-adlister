@@ -50,7 +50,19 @@
         </div>
         <input type="submit" class="btn btn-primary btn-block" value="Update Email">
     </form>
-    <br><br>   <form action="/updatePassword" method="post">
+
+    <br><br>
+    <form action="/updatePhone" method="post">
+        <input type="hidden" name="userId" value="${user.id}">
+        <div class="form-group">
+            <label for="email">Change Phone Number</label>
+            <input id="phone" name="phone" class="form-control" type="text" value="${user.phoneNumber}" >
+        </div>
+        <input type="submit" class="btn btn-primary btn-block" value="Update phone">
+    </form>
+
+    <br><br>
+    <form action="/updatePassword" method="post">
     <input type="hidden" name="userId" value="${user.id}">
     <div class="form-group">
         <label for="password">Change Password</label>

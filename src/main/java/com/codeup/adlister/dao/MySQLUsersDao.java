@@ -85,6 +85,19 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    @Override
+    public void updatePhone(String newPhone, String userId) {
+        String query = "UPDATE users SET phoneNumber = ? WHERE id = ?";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, newPhone);
+            stmt.setString(2, userId);
+            stmt.executeUpdate();
+        }catch (SQLException e){
+            throw new RuntimeException("Error updating phone number", e);
+        }
+    }
+
 
     @Override
     public void updatePassword(String newPassword, String userId) {
