@@ -19,6 +19,8 @@ public interface Users {
 
     void updateEmail(String newEmail, String userId);
 
+    void updatePhone(String newPhone, String userId);
+
     void updatePassword(String newPassword, String userId);
 
     void destroy(long userId);
