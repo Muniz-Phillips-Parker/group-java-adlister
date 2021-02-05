@@ -55,6 +55,29 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
+    ///////////////////////////////////////////
+//    Created by the MySQLAdsDao from 61 to 71 - from Christian
+    ///////////////////////////////////////////
+    @Override
+    public void deleteAd(Ad ad) {
+        PreparedStatement stmt;
+        try {
+            stmt = connection.prepareStatement("DELETE FROM ads WHERE id = ?");
+            stmt.setLong(1, ad.getId());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad.", e);
+        }
+    }
+    ///////////////////////////////////////////
+//    Created by the MySQLAdsDao from 61 to 71
+    /////////////////////////////////////////
+
+
+    @Override
+    public Ad getAdByID(long adId) {
+        return null;
+    }
 
 
 //***********************************************************************

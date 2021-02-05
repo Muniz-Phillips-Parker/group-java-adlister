@@ -22,4 +22,9 @@ public interface Ads {
     public void editAd(String title, String description, Long newId);
 
     public List<Ad> allForUser(User user);
+
+    //This is the void element associated with the DeleteAdServlet
+    void deleteAd(Ad ad);
+
+    Ad getAdByID(long adId);
 }
