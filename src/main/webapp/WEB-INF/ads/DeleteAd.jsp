@@ -13,6 +13,16 @@
     </jsp:include>
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/partials/LoginNavbar.jsp"/>
+<div class="container">
+    <form action="/delete/${ad.id}" method="POST">
+        <div class="container">
+            <h1 class="title">${ad.title}</h1>
+            <div class="text">${ad.description}</div>
+            <input type="submit" class="btn btn-info btn-primary" value="Delete">
+            <a href="/update/${ad.id}"><button class="btn btn-info btn-primary" type="button">Update</button></a>
+        </div>
+    </form>
+</div>
 </body>
 </html>

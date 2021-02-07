@@ -2,8 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
 import java.util.List;
 
 public interface Ads {
@@ -17,6 +16,7 @@ public interface Ads {
 
 
 
+
     Ad findById(long id);
 
     public void editAd(String title, String description, Long newId);
@@ -24,7 +24,10 @@ public interface Ads {
     public List<Ad> allForUser(User user);
 
     //This is the void element associated with the DeleteAdServlet
+    Ad getAdById(long id);
     void deleteAd(Ad ad);
+    Long delete(Long adId);
 
-    Ad getAdByID(long adId);
+
+
 }
