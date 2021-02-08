@@ -35,9 +35,7 @@
                 <a href="<c:url value="ads/edit" >
     <c:param name="id" value="${ad.id}"/>
     </c:url>">Edit</a>
-
-<
-                <a href="<c:url value="ads/delete" >
+    <a href="<c:url value="ads/delete" >
     <c:param name="id" value="${ad.id}"/>
     </c:url>">Delete</a>
 
