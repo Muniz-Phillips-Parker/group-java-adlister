@@ -61,22 +61,52 @@ public class MySQLAdsDao implements Ads {
     @Override
     public void deleteAd(Ad ad) {
         PreparedStatement stmt;
-        try {
-            stmt = connection.prepareStatement("DELETE FROM ads WHERE id = ?");
-            stmt.setLong(1, ad.getId());
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Error deleting ad.", e);
-        }
+//        try {
+//            stmt = connection.prepareStatement("DELETE FROM ads WHERE id = ?");
+//            stmt.setLong(1, ad.getId());
+//            stmt.executeUpdate();
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error deleting ad.", e);
+//        }
     }
     ///////////////////////////////////////////
 //    Created by the MySQLAdsDao from 61 to 71
     /////////////////////////////////////////
 
+    public Long delete(Long adId) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement ps = connection.prepareStatement(deleteQuery);
+            ps.setLong(1, adId);
+            ps.executeUpdate();
+            return Long.valueOf(2);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad", e);
+        }
+    }
+
 
     @Override
-    public Ad getAdByID(long adId) {
-        return null;
+    public Ad getAdById(long id) {
+        Ad ad = null;
+        try {
+            //"AND is_Deleted=0" how to check if it is deleted on 101
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ADS WHERE id=?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                ad = new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting Ad id", e);
+        }
+        return ad;
     }
 
 
@@ -118,7 +148,9 @@ public class MySQLAdsDao implements Ads {
     }
 
 
-//***********************************************************************
+
+
+    //***********************************************************************
 //    ***********************  FIND ADD BY ID    *************************
 //***********************************************************************
     public Ad findById(long id) {

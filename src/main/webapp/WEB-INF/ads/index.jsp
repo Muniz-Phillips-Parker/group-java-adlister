@@ -24,7 +24,7 @@
 </div>
 <div class="container">
     <br>
-    <a href="../profile"><button class="btn-primary">Back to my profile.</button></a>
+    <a href="../profile"><button class="btn btn-primary btn-block">Back to my profile.</button></a>
 </div>
 </body>
 </html>

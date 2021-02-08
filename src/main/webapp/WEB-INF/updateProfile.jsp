@@ -1,3 +1,4 @@
+<jsp:useBean id="user" scope="request" type="com.codeup.adlister.models.User"/>
 <%--
   Created by IntelliJ IDEA.
   User: Chris
